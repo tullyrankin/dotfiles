@@ -12,13 +12,13 @@ autocmd! bufwritepost .vimrc source %
 " Remember to install flake8 via pip
 autocmd BufWritePost *.py call Flake8()
 
-" Change highlight color for searches
-hi Search cterm=NONE ctermfg=grey ctermbg=blue
-
-" Set Flake8 to run on ctrl-c
+" set Flake8 to run on ctrl-c
 autocmd FileType python map <buffer> <C-C> :call Flake8()<CR>
 
-" Turn on line numbering
+" set colorscheme
+colorscheme vendetta
+
+" turn on line numbering
 set number
 
 " python Settings
@@ -43,20 +43,22 @@ set nobackup
 set noswapfile
 set nowritebackup
 
-" Set the scrolling to keep 5 lines below / above the cursor
+" set the scrolling to keep 5 lines below / above the cursor
 set scrolloff=5
 
-" highlight characters past column 70 as a warning.
-" lines will get wrapped at 79 characters
+" highlight characters past 79 chracters
 augroup vimrc_autocmds
     autocmd!
     autocmd FileType python highlight Excess ctermbg=DarkRed ctermfg=White
-    autocmd FileType python match Excess /\%75v.*/
+    autocmd FileType python match Excess /\%79v.*/
     autocmd FileType python set nowrap
     augroup END
 
 " toggles NerdTree with CTRL+n
 map <C-n> :NERDTreeToggle<CR>
+
+" toggle line numbers on / off
+map <C-l><C-n> :set nonumber!<CR>
 
 " bind Ctrl+<movement> keys to move around the windows, 
 " instead of using Ctrl+w + <movement>
