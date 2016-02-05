@@ -4,6 +4,7 @@
 # Author: Tully Rankin <tullyrankin@gmail.com>
 
 FILES=$(cat <<FILES
+.auto-virtualenv.bash
 .gitconfig
 .tmux.conf
 .vimrc
@@ -23,3 +24,10 @@ done
 for folder in $FOLDERS;do
   rsync -a $folder ~/
 done
+
+if ! grep -q "source ~/.auto-virtualenv.bash" ~/.bashrc;
+then
+    echo "source ~/.auto-virtualenv.bash" >> ~/.bashrc
+fi
+
+source ~/.bashrc
