@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Purpose: Set-up / install configuration files
+# Purpose: Configure development environment
 # Author: Tully Rankin <tullyrankin@gmail.com>
 
 FILES=$(cat <<FILES
